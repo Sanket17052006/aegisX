@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  gateway:
+    build: ./gateway-core
+    ports:
+      - "8080:8080"
+    networks:
+      - aegis-mesh
+    depends_on:
+      - security-engine
+      - mock-backend
+
+  security-engine:
+    build: ./security-engine
+    ports:
+      - "50051:50051"
+    networks:
+      - aegis-mesh
+
+  mock-backend:
+    image: kennethreitz/httpbin
+    networks:
+      - aegis-mesh
+
+networks:
+  aegis-mesh:
+    driver: bridge
