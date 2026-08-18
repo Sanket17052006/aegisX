@@ -1,0 +1,15 @@
+ syntax = "proto3";
+ package aegis.security;
+
+ service SecurityService {
+    rpc InspectPayload (InspectRequest) returns (InspectResponse);
+ }
+ 
+ message InspectRequest {
+    string request_body = 1;
+ }
+
+ message InspectResponse {
+    bool approved = 1;
+    string reason = 2;
+ }

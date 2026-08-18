@@ -1,1 +1,11 @@
 PROJECT_PLAN.md
+*.pyc
+__pycache__/
+.DS_Store
+venv/
+.venv/
+*.egg-info/
+.gradle/
+build/
+.idea/
+*.iml
